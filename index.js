@@ -47,10 +47,10 @@ class GestureRecognizer extends Component {
   }
 
   _handleShouldSetPanResponder(evt, gestureState) {
-    return evt.nativeEvent.touches.length === 1 && !this._gestureIsClick(gestureState) && this._validateSwipe(gestureState);
+    return evt.nativeEvent.touches.length === 1 && !this._gestureIsClick(gestureState) && this._determineCanSwipe(gestureState);
   }
 
-  _validateSwipe(gestureState) {
+  _determineCanSwipe(gestureState) {
     const {
       detectSwipeUp,
       detectSwipeDown,
